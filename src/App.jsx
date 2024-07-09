@@ -53,19 +53,20 @@ setJobs(tempJobs);
     fetchJobs()
   }, [])
   return (
-    <div>
+    <div className="px-4 md:px-10">
       <Navbar></Navbar>
       <Header></Header>
       <Searchbar fetchJobsCustom={fetchJobsCustom}/>
       {customSearch &&
-      <button onClick={fetchJobs} className="flex pl-[1000px] mb-3">
+      <button onClick={fetchJobs} className="flex justify-center mb-3">
         <p className="bg-blue-500 px-10 py-2 rounded-md text-white">Clear Filters</p>
       </button>
       }
+      <div className="flex flex-col items-center gap-4">
       {jobs.map((job) => (
         <JobCard key={job.id} {...job}/>
       ))}
-    
+      </div>
     </div>
        
   )
